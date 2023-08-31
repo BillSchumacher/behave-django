@@ -14,16 +14,17 @@ def pageobject_works(context):
     assert context.page.response.status_code == 200
     assert context.page.request == context.page.response.request
     assert isinstance(context.page.document, BeautifulSoup)
-    assert 'Test App: behave-django' == context.page.document.title.string, \
-        "unexpected title: %s" % context.page.document.title.string
+    assert (
+        'Test App: behave-django' == context.page.document.title.string
+    ), f"unexpected title: {context.page.document.title.string}"
 
 
 @then(u'get_link() returns the link subdocument')
 def getlink_subdocument(context):
     context.about_link = context.page.get_link('about')
-    assert isinstance(context.about_link, Tag), \
-        "should be instance of %s (not %s)" % (
-            Tag.__name__, context.about_link.__class__.__name__)
+    assert isinstance(
+        context.about_link, Tag
+    ), f"should be instance of {Tag.__name__} (not {context.about_link.__class__.__name__})"
 
 
 @when('I call click() on the link')
