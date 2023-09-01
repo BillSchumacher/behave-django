@@ -17,7 +17,7 @@ def read_file(filename):
 
 
 setup(
-    name='behave-django',
+    name='behave-django-bse',
     version=package.__version__,
     description=package.__doc__.strip(),
     long_description=read_file('README.rst'),
