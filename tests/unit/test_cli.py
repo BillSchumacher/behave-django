@@ -12,17 +12,16 @@ class TestCommandLine(DjangoSetupMixin):
         exit_status, output = run_silently(
             'python tests/manage.py behave --help')
         assert exit_status == 0, \
-            show_run_error(exit_status, output)
-        assert (os.linesep + '  --use-existing-database' +
-                os.linesep) in output
-        assert (os.linesep + '  -k, --keepdb') in output
-        assert (os.linesep + '  -S, --simple') in output
-        assert (os.linesep + '  --runner ') in output
+                show_run_error(exit_status, output)
+        assert f'{os.linesep}  --use-existing-database{os.linesep}' in output
+        assert f'{os.linesep}  -k, --keepdb' in output
+        assert f'{os.linesep}  -S, --simple' in output
+        assert f'{os.linesep}  --runner ' in output
         assert (os.linesep + '  --behave-r RUNNER_CLASS,'
                 ' --behave-runner RUNNER_CLASS') in output
-        assert (os.linesep + '  --noinput, --no-input') in output
-        assert (os.linesep + '  --failfast') in output
-        assert (os.linesep + '  -r, --reverse') in output
+        assert f'{os.linesep}  --noinput, --no-input' in output
+        assert f'{os.linesep}  --failfast' in output
+        assert f'{os.linesep}  -r, --reverse' in output
 
     def test_should_accept_behave_arguments(self):
         from behave_django.management.commands.behave import Command
