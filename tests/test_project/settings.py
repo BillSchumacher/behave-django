@@ -78,7 +78,20 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+"""
+DATABASES = {
+   'default': {
+       'NAME': 'behave', 
+       'USER': 'postgres', 
+       'PASSWORD': '', 
+       'HOST': '127.0.0.1',
+       'PORT': 5432, 
+       'ENGINE': 'django.db.backends.postgresql',
+   }
+}
+"""
 
+AUTH_USER_MODEL = "test_app.CustomUser"
 # Internationalization
 # https://docs.djangoproject.com/en/stable/topics/i18n/
 

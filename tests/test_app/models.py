@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 
 class BehaveTestModel(models.Model):
@@ -7,3 +8,7 @@ class BehaveTestModel(models.Model):
 
     def get_absolute_url(self):
         return '/behave/test/%i/%s' % (self.number, self.name)
+
+
+class CustomUser(AbstractUser):
+    pass
